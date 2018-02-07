@@ -9,8 +9,8 @@ public class TicketOrder {
 	private Day day;
 	private int price;
 	
-	public TicketOrder(String day) {
-		this.day = Day.valueOf(day.toUpperCase());
+	public TicketOrder(String dayString) {
+		setDayString(dayString);
 		tickets = new ArrayList<>();
 	}
 
@@ -21,22 +21,42 @@ public class TicketOrder {
 	    	tickets.add(ticket);
 	    	calculateOrderPrice(ticket);
 	    	return true;
-    	}
-    	catch (IllegalArgumentException e) {
+    	} catch (IllegalArgumentException e) {
     		e.printStackTrace();
     		return false;
     	}
     }
     
-    public int applyDiscount(Day day) {
-    	return 0;
+    public int applyDiscount() {
+    	if (day.equals(Day.WEDNESDAY)) {
+    		return 2;
+    	} else {
+    		return 0;
+    	}
     }
     
     private void calculateOrderPrice(Ticket ticket) {
     	price += ticket.getTicketPrice();
+    	price -= applyDiscount();
     }
     
-    public int getOrderPrice() {
+    public Day getDay() {
+		return day;
+	}
+
+	public void setDay(Day day) {
+		this.day = day;
+	}
+	
+	public void setDayString(String dayString) {
+		try {
+			this.day = Day.valueOf(dayString.toUpperCase());
+		} catch (IllegalArgumentException e) {
+    		e.printStackTrace();
+    	}
+	}
+
+	public int getOrderPrice() {
     	return price;
     }
 
