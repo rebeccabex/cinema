@@ -27,7 +27,7 @@ public class TicketOrder {
     	}
     }
     
-    public int applyDiscount() {
+    private int applyDiscount() {
     	if (day.equals(Day.WEDNESDAY)) {
     		return 2;
     	} else {
