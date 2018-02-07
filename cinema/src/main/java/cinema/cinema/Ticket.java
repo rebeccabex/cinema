@@ -13,7 +13,7 @@ public class Ticket {
 	}
 	
 	public int getTicketPrice() {
-		return 0;
+		return type.getPrice();
 	}
 	
 }
