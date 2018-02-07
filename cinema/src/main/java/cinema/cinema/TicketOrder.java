@@ -15,18 +15,29 @@ public class TicketOrder {
 	}
 
     public boolean addTicket(String ticketOrdered) {
-    	TicketType ticketType = TicketType.valueOf(ticketOrdered.toUpperCase());
-    	Ticket ticket = new Ticket(ticketType);
-    	tickets.add(ticket);
-    	return true;
+    	try {
+	    	TicketType ticketType = TicketType.valueOf(ticketOrdered.toUpperCase());
+	    	Ticket ticket = new Ticket(ticketType);
+	    	tickets.add(ticket);
+	    	calculateOrderPrice(ticket);
+	    	return true;
+    	}
+    	catch (IllegalArgumentException e) {
+    		e.printStackTrace();
+    		return false;
+    	}
     }
     
     public int applyDiscount(Day day) {
     	return 0;
     }
     
-    public int calculateOrderPrice() {
-    	return 0;
+    private void calculateOrderPrice(Ticket ticket) {
+    	price += ticket.getTicketPrice();
+    }
+    
+    public int getOrderPrice() {
+    	return price;
     }
 
 	public List<Ticket> getTickets() {
