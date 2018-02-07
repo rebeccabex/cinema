@@ -1,7 +1,8 @@
 package cinema.cinema;
 
 import junit.framework.TestCase;
-import org.junit.Before;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TicketTest extends TestCase {
@@ -11,7 +12,7 @@ public class TicketTest extends TestCase {
 	Ticket student;
 	Ticket child;
 	
-	@Before
+	@BeforeClass
 	public void setUp() {
 		standard = new Ticket(TicketType.STANDARD);
 		oap = new Ticket(TicketType.OAP);
