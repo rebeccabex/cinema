@@ -2,7 +2,6 @@ package cinema.cinema;
 
 import junit.framework.TestCase;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
