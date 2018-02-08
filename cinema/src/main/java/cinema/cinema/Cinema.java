@@ -25,7 +25,7 @@ public class Cinema {
     	while (!checkout) {
     		String command = clInterface.getInput("What type of ticket would you like? Standard, OAP, Student or Child."
     				+ "\n Or type 'Checkout' to pay for your tickets.");
-    		if (command.equalsIgnoreCase("Checkout")) {
+    		if ("Checkout".equalsIgnoreCase(command)) {
     			checkout = true;
 	    	} else {
     			ticketOrder.addTicket(command);

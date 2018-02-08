@@ -8,7 +8,6 @@ public class CLInterface {
 
     public CLInterface() {
         reader = new Scanner(System.in);
-//        setDelimiter("\n");
 }
 	public String getInput(String prompt) {
 		System.out.println(prompt);
